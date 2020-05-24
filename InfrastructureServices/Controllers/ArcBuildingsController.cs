@@ -6,35 +6,36 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ArcBuildings.DomainObjects;
 
-namespace ArcBuildings.WebService.Controllers
+namespace ArcBuildings.WebService.InfrastructureServices.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ArcBuildginsController : ControllerBase
+    public class ArcBuildingsController : ControllerBase
     {
-        private readonly ILogger<ArcBuildginsController> _logger;
+        private readonly ILogger<ArcBuildingsController> _logger;
 
-        public ArcBuildginsController(ILogger<ArcBuildginsController> logger)
+        public ArcBuildingsController(ILogger<ArcBuildingsController> logger)
         {
             _logger = logger;
         }
 
         [HttpGet]
-        public IEnumerable<DomainObjects.ArcBuildings> GetRoute()
+        public IEnumerable<DomainObjects.ArcBuildings> GetAllArcBuildings()
         {
             return new List<DomainObjects.ArcBuildings>()
             {
                 new DomainObjects.ArcBuildings()
                 {
-                    Id = 1,
+                     Id = 1,
                     Name = "ТЭО строительства административного здания",
                     Functionality = "Административное здание",
                     Location = "Селезневская ул., вл.22",
                     Number = "372-4-97",
                     Date = "04.11.1997",
                     Applicant = "ТЭО строительства административного здания"
-                } 
+                }
             };
         }
     }
 }
+
