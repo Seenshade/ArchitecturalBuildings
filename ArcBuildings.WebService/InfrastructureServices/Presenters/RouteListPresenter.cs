@@ -1,9 +1,9 @@
-﻿using ArcBuildings.ApplicationServices.GetArcBuildingsListUseCase;
+﻿using ArchitecturalBuildings.ApplicationServices.GetArcBuildingsListUseCase;
 using System.Net;
 using Newtonsoft.Json;
-using ArcBuildings.ApplicationServices.Ports;
+using ArchitecturalBuildings.ApplicationServices.Ports;
 
-namespace ArcBuildings.InfrastructureServices.Presenters
+namespace ArchitecturalBuildings.InfrastructureServices.Presenters
 {
     public class ArcBuildingsListPresenter : IOutputPort<GetArcBuildingsListUseCaseResponse>
     {

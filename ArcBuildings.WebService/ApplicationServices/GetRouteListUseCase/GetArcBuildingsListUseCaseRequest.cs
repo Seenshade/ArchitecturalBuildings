@@ -1,9 +1,9 @@
-﻿using ArcBuildings.ApplicationServices.Interfaces;
+﻿using ArchitecturalBuildings.ApplicationServices.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ArcBuildings.ApplicationServices.GetArcBuildingsListUseCase
+namespace ArchitecturalBuildings.ApplicationServices.GetArcBuildingsListUseCase
 {
     public class GetArcBuildingsListUseCaseRequest : IUseCaseRequest<GetArcBuildingsListUseCaseResponse>
     {
@@ -12,13 +12,13 @@ namespace ArcBuildings.ApplicationServices.GetArcBuildingsListUseCase
         private GetArcBuildingsListUseCaseRequest()
         { }
 
-        public static GetArcBuildingsListUseCaseRequest CreateAllRoutesRequest()
+        public static GetArcBuildingsListUseCaseRequest CreateAllArcBuildingsRequest()
         {
             return new GetArcBuildingsListUseCaseRequest();
         }
-        public static GetArcBuildingsListUseCaseRequest CreateRouteRequest(long routeId)
+        public static GetArcBuildingsListUseCaseRequest CreateArcBuildingsRequest(long BuildingId)
         {
-            return new GetArcBuildingsListUseCaseRequest() { ArcBuildingId = routeId };
+            return new GetArcBuildingsListUseCaseRequest() { ArcBuildingId = BuildingId };
         }
     }
 }

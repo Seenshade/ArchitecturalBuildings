@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ArcBuildings.InfrastructureServices.Presenters
+namespace ArchitecturalBuildings.InfrastructureServices.Presenters
 {
     public class JsonContentResult : ContentResult
     {

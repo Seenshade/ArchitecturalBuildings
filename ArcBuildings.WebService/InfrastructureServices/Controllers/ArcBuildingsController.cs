@@ -4,38 +4,40 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ArcBuildings.DomainObjects;
+using ArchitecturalBuildings.DomainObjects;
+using ArchitecturalBuildings.ApplicationServices.GetArcBuildingsListUseCase;
+using ArchitecturalBuildings.InfrastructureServices.Presenters;
 
-namespace ArcBuildings.WebService.InfrastructureServices.Controllers
+namespace ArchitecturalBuildings.InfrastructureServices.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ArcBuildingsController : ControllerBase
+    public class RoutesController : ControllerBase
     {
-        private readonly ILogger<ArcBuildingsController> _logger;
+        private readonly ILogger<RoutesController> _logger;
+        private readonly IGetArcBuildingsListUseCase _getArcBuildingsListUseCase;
 
-        public ArcBuildingsController(ILogger<ArcBuildingsController> logger)
+        public RoutesController(ILogger<RoutesController> logger,
+                                IGetArcBuildingsListUseCase getRouteListUseCase)
         {
             _logger = logger;
+            _getArcBuildingsListUseCase = getRouteListUseCase;
         }
 
         [HttpGet]
-        public IEnumerable<DomainObjects.ArcBuildings> GetAllArcBuildings()
+        public async Task<ActionResult> GetAllRoutes()
         {
-            return new List<DomainObjects.ArcBuildings>()
-            {
-                new DomainObjects.ArcBuildings()
-                {
-                     Id = 1,
-                    Name = "ТЭО строительства административного здания",
-                    Functionality = "Административное здание",
-                    Location = "Селезневская ул., вл.22",
-                    Number = "372-4-97",
-                    Date = "04.11.1997",
-                    Applicant = "ТЭО строительства административного здания"
-                }
-            };
+            var presenter = new ArcBuildingsListPresenter();
+            await _getArcBuildingsListUseCase.Handle(GetArcBuildingsListUseCaseRequest.CreateAllArcBuildingsRequest(), presenter);
+            return presenter.ContentResult;
+        }
+
+        [HttpGet("{routeId}")]
+        public async Task<ActionResult> GetRoute(long BuildingId)
+        {
+            var presenter = new ArcBuildingsListPresenter();
+            await _getArcBuildingsListUseCase.Handle(GetArcBuildingsListUseCaseRequest.CreateArcBuildingsRequest(BuildingId), presenter);
+            return presenter.ContentResult;
         }
     }
 }
-

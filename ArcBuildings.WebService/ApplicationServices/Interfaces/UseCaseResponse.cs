@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ArcBuildings.ApplicationServices.Interfaces
+namespace ArchitecturalBuildings.ApplicationServices.Interfaces
 {
     public abstract class UseCaseResponse
     {

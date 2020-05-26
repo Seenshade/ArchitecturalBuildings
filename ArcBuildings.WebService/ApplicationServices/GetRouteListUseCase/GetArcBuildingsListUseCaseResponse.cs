@@ -1,10 +1,10 @@
-﻿using ArcBuildings.DomainObjects;
-using ArcBuildings.ApplicationServices.Interfaces;
+﻿using ArchitecturalBuildings.DomainObjects;
+using ArchitecturalBuildings.ApplicationServices.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ArcBuildings.ApplicationServices.GetArcBuildingsListUseCase
+namespace ArchitecturalBuildings.ApplicationServices.GetArcBuildingsListUseCase
 {
     public class GetArcBuildingsListUseCaseResponse : UseCaseResponse
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace ArcBuildings.DomainObjects.Ports
+namespace ArchitecturalBuildings.DomainObjects.Ports
 {
     public interface ICriteria<T> where T : DomainObject
     {
