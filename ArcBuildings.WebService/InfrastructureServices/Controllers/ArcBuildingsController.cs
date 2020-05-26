@@ -12,20 +12,20 @@ namespace ArchitecturalBuildings.InfrastructureServices.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class RoutesController : ControllerBase
+    public class ArcBuildingsController : ControllerBase
     {
-        private readonly ILogger<RoutesController> _logger;
+        private readonly ILogger<ArcBuildingsController> _logger;
         private readonly IGetArcBuildingsListUseCase _getArcBuildingsListUseCase;
 
-        public RoutesController(ILogger<RoutesController> logger,
-                                IGetArcBuildingsListUseCase getRouteListUseCase)
+        public ArcBuildingsController(ILogger<ArcBuildingsController> logger,
+                                IGetArcBuildingsListUseCase getArcBuildingListUseCase)
         {
             _logger = logger;
-            _getArcBuildingsListUseCase = getRouteListUseCase;
+            _getArcBuildingsListUseCase = getArcBuildingListUseCase;
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetAllRoutes()
+        public async Task<ActionResult> GetAllArcBuildings()
         {
             var presenter = new ArcBuildingsListPresenter();
             await _getArcBuildingsListUseCase.Handle(GetArcBuildingsListUseCaseRequest.CreateAllArcBuildingsRequest(), presenter);
@@ -33,7 +33,7 @@ namespace ArchitecturalBuildings.InfrastructureServices.Controllers
         }
 
         [HttpGet("{routeId}")]
-        public async Task<ActionResult> GetRoute(long BuildingId)
+        public async Task<ActionResult> GetArcBuildings(long BuildingId)
         {
             var presenter = new ArcBuildingsListPresenter();
             await _getArcBuildingsListUseCase.Handle(GetArcBuildingsListUseCaseRequest.CreateArcBuildingsRequest(BuildingId), presenter);
