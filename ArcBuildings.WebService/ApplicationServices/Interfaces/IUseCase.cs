@@ -1,10 +1,10 @@
-﻿using ArcBuildings.ApplicationServices.Ports;
+﻿using ArchitecturalBuildings.ApplicationServices.Ports;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ArcBuildings.ApplicationServices.Interfaces
+namespace ArchitecturalBuildings.ApplicationServices.Interfaces
 {
     public interface IUseCase<in TUseCaseRequest, out TUseCaseResponse>
         where TUseCaseRequest : IUseCaseRequest<TUseCaseResponse>

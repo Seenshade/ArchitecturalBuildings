@@ -1,9 +1,9 @@
-﻿using ArcBuildings.ApplicationServices.Interfaces;
+﻿using ArchitecturalBuildings.ApplicationServices.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ArcBuildings.ApplicationServices.GetArcBuildingsListUseCase
+namespace ArchitecturalBuildings.ApplicationServices.GetArcBuildingsListUseCase
 {
     public class GetArcBuildingsListUseCaseRequest : IUseCaseRequest<GetArcBuildingsListUseCaseResponse>
     {

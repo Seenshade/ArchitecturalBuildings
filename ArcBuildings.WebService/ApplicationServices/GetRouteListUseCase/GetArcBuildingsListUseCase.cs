@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 using System.Collections.Generic;
-using ArcBuildings.DomainObjects.Ports;
-using ArcBuildings.ApplicationServices.Ports;
+using ArchitecturalBuildings.DomainObjects.Ports;
+using ArchitecturalBuildings.ApplicationServices.Ports;
 
-namespace ArcBuildings.ApplicationServices.GetArcBuildingsListUseCase
+namespace ArchitecturalBuildings.ApplicationServices.GetArcBuildingsListUseCase
 {
     public class GetArcBuildingsListUseCase : IGetArcBuildingsListUseCase
     {

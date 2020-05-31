@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 
-namespace ArcBuildings.DomainObjects.Ports
+namespace ArchitecturalBuildings.DomainObjects.Ports
 {
     public interface IReadOnlyArcBuildingsRepository
     {
