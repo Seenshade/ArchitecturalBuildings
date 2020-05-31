@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace ArcBuildings.WebService
+namespace ArchitecturalBuildings.WebService
 {
     public class Program
     {

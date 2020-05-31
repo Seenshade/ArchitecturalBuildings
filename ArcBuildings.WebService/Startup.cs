@@ -4,7 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace ArcBuildings.WebService
+namespace ArchitecturalBuildings.WebService
 {
     public class Startup
     {

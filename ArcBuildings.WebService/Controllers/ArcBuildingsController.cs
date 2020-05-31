@@ -4,27 +4,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ArcBuildings.DomainObjects;
+using ArchitecturalBuildings.DomainObjects;
 
-namespace ArcBuildings.WebService.Controllers
+namespace ArchitecturalBuildings.WebService.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ArcBuildginsController : ControllerBase
+    public class ArcBuildingsController : ControllerBase
     {
-        private readonly ILogger<ArcBuildginsController> _logger;
+        private readonly ILogger<ArcBuildingsController> _logger;
 
-        public ArcBuildginsController(ILogger<ArcBuildginsController> logger)
+        public ArcBuildingsController(ILogger<ArcBuildingsController> logger)
         {
             _logger = logger;
         }
 
         [HttpGet]
-        public IEnumerable<DomainObjects.ArcBuildings> GetRoute()
+        public IEnumerable<ArcBuildings> GetRoute()
         {
-            return new List<DomainObjects.ArcBuildings>()
+            return new List<ArcBuildings>()
             {
-                new DomainObjects.ArcBuildings()
+                new ArcBuildings()
                 {
                     Id = 1,
                     Name = "ТЭО строительства административного здания",

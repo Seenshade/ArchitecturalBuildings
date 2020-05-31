@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ArcBuildings.DomainObjects
+namespace ArchitecturalBuildings.DomainObjects
 {
     public abstract class DomainObject
     {
