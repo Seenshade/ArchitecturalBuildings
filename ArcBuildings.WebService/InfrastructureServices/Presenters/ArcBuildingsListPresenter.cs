@@ -10,7 +10,7 @@ namespace ArchitecturalBuildings.InfrastructureServices.Presenters
         public JsonContentResult ContentResult { get; }
 
         public ArcBuildingsListPresenter()
-        {   
+        {
             ContentResult = new JsonContentResult();
         }
 

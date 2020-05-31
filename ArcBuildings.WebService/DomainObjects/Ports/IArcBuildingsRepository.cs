@@ -7,20 +7,20 @@ namespace ArchitecturalBuildings.DomainObjects.Ports
 {
     public interface IReadOnlyArcBuildingsRepository
     {
-        Task<ArcBuildings> GetArcBuilding(long id);
+        Task<ArcBuildings> GetBuilding(long id);
 
-        Task<IEnumerable<ArcBuildings>> GetAllArcBuildings();
+        Task<IEnumerable<ArcBuildings>> GetAllBuildings();
 
-        Task<IEnumerable<ArcBuildings>> QueryArcBuildings(ICriteria<ArcBuildings> criteria);
+        Task<IEnumerable<ArcBuildings>> QueryBuildings(ICriteria<ArcBuildings> criteria);
 
     }
 
     public interface IArcBuildingsRepository
     {
-        Task AddArcBuilding(ArcBuildings ArcBuildings);
+        Task AddBuilding(ArcBuildings route);
 
-        Task RemoveArcBuilding(ArcBuildings ArcBuildings);
+        Task RemoveBuilding(ArcBuildings route);
 
-        Task UpdateArcBuilding(ArcBuildings ArcBuildings);
+        Task UpdateBuilding(ArcBuildings route);
     }
 }

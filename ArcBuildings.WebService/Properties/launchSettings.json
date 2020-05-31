@@ -12,15 +12,15 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "arcbuildings",
+      "launchUrl": "ArcBuildings",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "ArcBuildings.WebService": {
+    "MoscowTransport.WebService": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "arcbuildings",
+      "launchUrl": "ArcBuildings",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

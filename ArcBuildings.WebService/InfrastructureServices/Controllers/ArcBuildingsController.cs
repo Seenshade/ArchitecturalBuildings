@@ -18,10 +18,10 @@ namespace ArchitecturalBuildings.InfrastructureServices.Controllers
         private readonly IGetArcBuildingsListUseCase _getArcBuildingsListUseCase;
 
         public ArcBuildingsController(ILogger<ArcBuildingsController> logger,
-                                IGetArcBuildingsListUseCase getArcBuildingListUseCase)
+                                IGetArcBuildingsListUseCase getArcBuildingsListUseCase)
         {
             _logger = logger;
-            _getArcBuildingsListUseCase = getArcBuildingListUseCase;
+            _getArcBuildingsListUseCase = getArcBuildingsListUseCase;
         }
 
         [HttpGet]
@@ -33,10 +33,10 @@ namespace ArchitecturalBuildings.InfrastructureServices.Controllers
         }
 
         [HttpGet("{routeId}")]
-        public async Task<ActionResult> GetArcBuildings(long BuildingId)
+        public async Task<ActionResult> GetBuildingId(long routeId)
         {
             var presenter = new ArcBuildingsListPresenter();
-            await _getArcBuildingsListUseCase.Handle(GetArcBuildingsListUseCaseRequest.CreateArcBuildingsRequest(BuildingId), presenter);
+            await _getArcBuildingsListUseCase.Handle(GetArcBuildingsListUseCaseRequest.CreateArcBuildingsRequest(routeId), presenter);
             return presenter.ContentResult;
         }
     }

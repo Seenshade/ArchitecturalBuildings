@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Collections.Generic;
+using ArchitecturalBuildings.DomainObjects;
 using ArchitecturalBuildings.DomainObjects.Ports;
 using ArchitecturalBuildings.ApplicationServices.Ports;
 
@@ -14,17 +15,18 @@ namespace ArchitecturalBuildings.ApplicationServices.GetArcBuildingsListUseCase
 
         public async Task<bool> Handle(GetArcBuildingsListUseCaseRequest request, IOutputPort<GetArcBuildingsListUseCaseResponse> outputPort)
         {
-            IEnumerable<DomainObjects.ArcBuildings> arcBuildings = null;
-            if (request.ArcBuildingId != null)
+            IEnumerable<ArcBuildings> buildings = null;
+            if (request.BuildId != null)
             {
-                var arcBuilding = await _readOnlyArcBuildingsRepository.GetArcBuilding(request.ArcBuildingId.Value);
-                arcBuildings = (arcBuildings != null) ? new List<DomainObjects.ArcBuildings>() { arcBuilding } : new List<DomainObjects.ArcBuildings>();               
-            } 
+                var route = await _readOnlyArcBuildingsRepository.GetBuilding(request.BuildId.Value);
+                buildings = (route != null) ? new List<ArcBuildings>() { route } : new List<ArcBuildings>();
+                
+            }
             else
             {
-                arcBuildings = await _readOnlyArcBuildingsRepository.GetAllArcBuildings();
+                buildings = await _readOnlyArcBuildingsRepository.GetAllBuildings();
             }
-            outputPort.Handle(new GetArcBuildingsListUseCaseResponse(arcBuildings));
+            outputPort.Handle(new GetArcBuildingsListUseCaseResponse(buildings));
             return true;
         }
     }

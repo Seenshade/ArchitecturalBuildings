@@ -8,8 +8,8 @@ namespace ArchitecturalBuildings.ApplicationServices.GetArcBuildingsListUseCase
 {
     public class GetArcBuildingsListUseCaseResponse : UseCaseResponse
     {
-        public IEnumerable<DomainObjects.ArcBuildings> Buildings { get; }
+        public IEnumerable<ArcBuildings> Buildings { get; }
 
-        public GetArcBuildingsListUseCaseResponse(IEnumerable<DomainObjects.ArcBuildings> buildings) => Buildings = buildings;
+        public GetArcBuildingsListUseCaseResponse(IEnumerable<ArcBuildings> routes) => Buildings = routes;
     }
 }

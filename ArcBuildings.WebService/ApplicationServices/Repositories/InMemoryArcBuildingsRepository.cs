@@ -10,58 +10,58 @@ using System.Threading.Tasks;
 namespace ArchitecturalBuildings.ApplicationServices.Repositories
 {
     public class InMemoryArcBuildingsRepository : IReadOnlyArcBuildingsRepository,
-                                                  IArcBuildingsRepository
+                                                  IArcBuildingsRepository 
     {
-        private readonly List<DomainObjects.ArcBuildings> _arcBuildings = new List<DomainObjects.ArcBuildings>();
+        private readonly List<ArcBuildings> _buildings = new List<ArcBuildings>();
 
-        public InMemoryArcBuildingsRepository(IEnumerable<DomainObjects.ArcBuildings> ArcBuildings = null)
+        public InMemoryArcBuildingsRepository(IEnumerable<ArcBuildings> routes = null)
         {
-            if (ArcBuildings != null)
+            if (routes != null)
             {
-                _arcBuildings.AddRange(ArcBuildings);
+                _buildings.AddRange(routes);
             }
         }
 
-        public Task AddArcBuilding(DomainObjects.ArcBuildings ArcBuildings)
+        public Task AddBuilding(ArcBuildings route)
         {
-            _arcBuildings.Add(ArcBuildings);
+            _buildings.Add(route);
             return Task.CompletedTask;
         }
 
-        public Task<IEnumerable<DomainObjects.ArcBuildings>> GetAllArcBuildings()
+        public Task<IEnumerable<ArcBuildings>> GetAllBuildings()
         {
-            return Task.FromResult(_arcBuildings.AsEnumerable());
+            return Task.FromResult(_buildings.AsEnumerable());
         }
 
-        public Task<DomainObjects.ArcBuildings> GetArcBuilding(long id)
+        public Task<ArcBuildings> GetBuilding(long id)
         {
-            return Task.FromResult(_arcBuildings.Where(b => b.Id == id).FirstOrDefault());
+            return Task.FromResult(_buildings.Where(r => r.Id == id).FirstOrDefault());
         }
 
-        public Task<IEnumerable<DomainObjects.ArcBuildings>> QueryArcBuildings(ICriteria<DomainObjects.ArcBuildings> criteria)
+        public Task<IEnumerable<ArcBuildings>> QueryBuildings(ICriteria<ArcBuildings> criteria)
         {
-            return Task.FromResult(_arcBuildings.Where(criteria.Filter.Compile()).AsEnumerable());
+            return Task.FromResult(_buildings.Where(criteria.Filter.Compile()).AsEnumerable());
         }
 
-        public Task RemoveArcBuilding(DomainObjects.ArcBuildings ArcBuildings)
+        public Task RemoveBuilding(ArcBuildings route)
         {
-            _arcBuildings.Remove(ArcBuildings);
+            _buildings.Remove(route);
             return Task.CompletedTask;
         }
 
-        public Task UpdateArcBuilding(DomainObjects.ArcBuildings ArcBuilding)
+        public Task UpdateBuilding(ArcBuildings route)
         {
-            var foundArcBuilding = GetArcBuilding(ArcBuilding.Id).Result;
-            if (foundArcBuilding == null)
+            var foundRoute = GetBuilding(route.Id).Result;
+            if (foundRoute == null)
             {
-                AddArcBuilding(ArcBuilding);
+                AddBuilding(route);
             }
             else
             {
-                if (foundArcBuilding != ArcBuilding)
+                if (foundRoute != route)
                 {
-                    _arcBuildings.Remove(foundArcBuilding);
-                    _arcBuildings.Add(ArcBuilding);
+                    _buildings.Remove(foundRoute);
+                    _buildings.Add(route);
                 }
             }
             return Task.CompletedTask;
