@@ -29,8 +29,7 @@ namespace ArchitecturalBuildings.InfrastructureServices.Cache
             => _allObjectsExpirationTime != null && _allObjectsExpirationTime.Value >= DateTime.Now ?
                _objectsCache.Values.Select(item => item.Item1) :
                null;
-
-
+        
         public void UpdateObjects(IEnumerable<T> domainObjects, DateTime expirationTime, bool allObjects)
         {
             foreach (var domainObject in domainObjects)

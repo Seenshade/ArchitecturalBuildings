@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ArchitecturalBuildings.DomainObjects
 {
-    public abstract class DomainObject
+    public class DomainObject
     {
         public long Id { get; set; }
     }
