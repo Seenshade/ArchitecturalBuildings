@@ -5,14 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="DomainObjects\**" />
-    <Content Remove="DomainObjects\**" />
-    <EmbeddedResource Remove="DomainObjects\**" />
-    <None Remove="DomainObjects\**" />
-  </ItemGroup>
-
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -24,9 +16,5 @@
   <ItemGroup>
     <ProjectReference Include="..\ArchitecturalBuildings.GeneralLogic\ArchitecturalBuildings.GeneralLogic.csproj" />
   </ItemGroup>
-
-  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
-
-
 
 </Project>

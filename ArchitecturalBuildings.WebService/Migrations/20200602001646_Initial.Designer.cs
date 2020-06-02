@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ArchitecturalBuildings.WebService.Migrations
 {
     [DbContext(typeof(ArcBuildingsContext))]
-    [Migration("20200601135247_Initial")]
+    [Migration("20200602001646_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

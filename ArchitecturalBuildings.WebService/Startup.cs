@@ -3,12 +3,14 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using ArchitecturalBuildings.InfrastructureServices.Gateways.Database;
 using Microsoft.EntityFrameworkCore;
 using ArchitecturalBuildings.ApplicationServices.GetArcBuildingsListUseCase;
-using ArchitecturalBuildings.ApplicationServices.Ports.Gateways.Database;
 using ArchitecturalBuildings.ApplicationServices.Repositories;
+using ArchitecturalBuildings.ApplicationServices.Ports.Gateways.Database;
 using ArchitecturalBuildings.DomainObjects.Ports;
+using ArchitecturalBuildings.DomainObjects;
+using System.Collections.Generic;
+using ArchitecturalBuildings.InfrastructureServices.Gateways.Database;
 
 namespace ArchitecturalBuildings.WebService
 {
@@ -35,8 +37,7 @@ namespace ArchitecturalBuildings.WebService
             services.AddScoped<IArcBuildingsRepository>(x => x.GetRequiredService<DbArcBuildingsRepository>());
 
             services.AddScoped<IGetArcBuildingsListUseCase, GetArcBuildingsListUseCase>();
-
-            
+          
             services.AddControllers();
         }
 
