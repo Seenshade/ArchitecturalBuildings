@@ -11,36 +11,36 @@ namespace ArchitecturalBuildings.InfrastructureServices.Gateways.Database
 {
     public class ArcBuildingsEFSqliteGateway : IArcBuildingsDatabaseGateway
     {
-        private readonly ArcBuildingsContext _transportContext;
+        private readonly ArcBuildingsContext _arcbuildingsContext;
 
-        public ArcBuildingsEFSqliteGateway(ArcBuildingsContext transportContext)
-            => _transportContext = transportContext;
+        public ArcBuildingsEFSqliteGateway(ArcBuildingsContext buildingContext)
+            => _arcbuildingsContext = buildingContext;
 
-        public async Task<ArcBuildings> GetArcBuilding(long id)
-           => await _transportContext.BuildingDB.Where(r => r.Id == id).FirstOrDefaultAsync();
+        public async Task<ArcBuildings> GetBuilding(long id)
+           => await _arcbuildingsContext.Buildings.Where(r => r.Id == id).FirstOrDefaultAsync();
 
-        public async Task<IEnumerable<ArcBuildings>> GetAllArcBuildings()
-            => await _transportContext.BuildingDB.ToListAsync();
+        public async Task<IEnumerable<ArcBuildings>> GetAllBuildings()
+            => await _arcbuildingsContext.Buildings.ToListAsync();
           
-        public async Task<IEnumerable<ArcBuildings>> QueryArcBuildings(Expression<Func<ArcBuildings, bool>> filter)
-            => await _transportContext.BuildingDB.Where(filter).ToListAsync();
+        public async Task<IEnumerable<ArcBuildings>> QueryBuildings(Expression<Func<ArcBuildings, bool>> filter)
+            => await _arcbuildingsContext.Buildings.Where(filter).ToListAsync();
 
-        public async Task AddArcBuilding(ArcBuildings route)
+        public async Task AddBuilding(ArcBuildings building)
         {
-            _transportContext.BuildingDB.Add(route);
-            await _transportContext.SaveChangesAsync();
+            _arcbuildingsContext.Buildings.Add(building);
+            await _arcbuildingsContext.SaveChangesAsync();
         }
 
-        public async Task UpdateArcBuilding(ArcBuildings route)
+        public async Task UpdateBuilding(ArcBuildings building)
         {
-            _transportContext.Entry(route).State = EntityState.Modified;
-            await _transportContext.SaveChangesAsync();
+            _arcbuildingsContext.Entry(building).State = EntityState.Modified;
+            await _arcbuildingsContext.SaveChangesAsync();
         }
 
-        public async Task RemoveArcBuilding(ArcBuildings route)
+        public async Task RemoveBuilding(ArcBuildings building)
         {
-            _transportContext.BuildingDB.Remove(route);
-            await _transportContext.SaveChangesAsync();
+            _arcbuildingsContext.Buildings.Remove(building);
+            await _arcbuildingsContext.SaveChangesAsync();
         }
 
     }

@@ -17,9 +17,9 @@ namespace ArchitecturalBuildings.ApplicationServices.GetArcBuildingsListUseCase
             return new GetArcBuildingsListUseCaseRequest();
         }
 
-        public static GetArcBuildingsListUseCaseRequest CreateArcBuildingsRequest(long BuildingId)
+        public static GetArcBuildingsListUseCaseRequest CreateArcBuildingsRequest(long buildingId)
         {
-            return new GetArcBuildingsListUseCaseRequest() { BuildId = BuildingId };
+            return new GetArcBuildingsListUseCaseRequest() { BuildId = buildingId };
         }
     }
 }

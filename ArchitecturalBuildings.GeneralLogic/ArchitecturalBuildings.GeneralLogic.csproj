@@ -5,4 +5,10 @@
     <RootNamespace>ArchitecturalBuildings</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="DomainServices\**" />
+    <EmbeddedResource Remove="DomainServices\**" />
+    <None Remove="DomainServices\**" />
+  </ItemGroup>
+
 </Project>

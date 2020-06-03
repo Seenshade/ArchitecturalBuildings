@@ -16,22 +16,22 @@ namespace ArchitecturalBuildings.ApplicationServices.Repositories
         public DbArcBuildingsRepository(IArcBuildingsDatabaseGateway databaseGateway)
             => _databaseGateway = databaseGateway;
 
-        public async Task<ArcBuildings> GetBuilding(long id)
-            => await _databaseGateway.GetArcBuilding(id);
+        public async Task<ArcBuildings> GetArcBuilding(long id)
+            => await _databaseGateway.GetBuilding(id);
 
-        public async Task<IEnumerable<ArcBuildings>> GetAllBuildings()
-            => await _databaseGateway.GetAllArcBuildings();
+        public async Task<IEnumerable<ArcBuildings>> GetAllArcBuildings()
+            => await _databaseGateway.GetAllBuildings();
 
-        public async Task<IEnumerable<ArcBuildings>> QueryBuildings(ICriteria<ArcBuildings> criteria)
-            => await _databaseGateway.QueryArcBuildings(criteria.Filter);
+        public async Task<IEnumerable<ArcBuildings>> QueryArcBuildings(ICriteria<ArcBuildings> criteria)
+            => await _databaseGateway.QueryBuildings(criteria.Filter);
 
-        public async Task AddBuilding(ArcBuildings route)
-            => await _databaseGateway.AddArcBuilding(route);
+        public async Task AddArcBuilding(ArcBuildings building)
+            => await _databaseGateway.AddBuilding(building);
 
-        public async Task RemoveBuilding(ArcBuildings route)
-            => await _databaseGateway.RemoveArcBuilding(route);
+        public async Task RemoveArcBuilding(ArcBuildings building)
+            => await _databaseGateway.RemoveBuilding(building);
 
-        public async Task UpdateBuilding(ArcBuildings route)
-            => await _databaseGateway.UpdateArcBuilding(route);
+        public async Task UpdateArcBuilding(ArcBuildings building)
+            => await _databaseGateway.UpdateBuilding(building);
     }
 }

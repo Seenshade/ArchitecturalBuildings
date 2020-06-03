@@ -41,7 +41,7 @@ namespace ArchitecturalBuildings.WebService.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("BuildingDB");
+                    b.ToTable("Buildings");
 
                     b.HasData(
                         new

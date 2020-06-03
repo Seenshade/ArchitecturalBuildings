@@ -14,47 +14,47 @@ namespace ArchitecturalBuildings.ApplicationServices.Repositories
     {
         private readonly List<ArcBuildings> _buildings = new List<ArcBuildings>();
 
-        public InMemoryArcBuildingsRepository(IEnumerable<ArcBuildings> routes = null)
+        public InMemoryArcBuildingsRepository(IEnumerable<ArcBuildings> buildings = null)
         {
-            if (routes != null)
+            if (buildings != null)
             {
-                _buildings.AddRange(routes);
+                _buildings.AddRange(buildings);
             }
         }
 
-        public Task AddBuilding(ArcBuildings route)
+        public Task AddArcBuilding(ArcBuildings building)
         {
-            _buildings.Add(route);
+            _buildings.Add(building);
             return Task.CompletedTask;
         }
 
-        public Task<IEnumerable<ArcBuildings>> GetAllBuildings()
+        public Task<IEnumerable<ArcBuildings>> GetAllArcBuildings()
         {
             return Task.FromResult(_buildings.AsEnumerable());
         }
 
-        public Task<ArcBuildings> GetBuilding(long id)
+        public Task<ArcBuildings> GetArcBuilding(long id)
         {
             return Task.FromResult(_buildings.Where(r => r.Id == id).FirstOrDefault());
         }
 
-        public Task<IEnumerable<ArcBuildings>> QueryBuildings(ICriteria<ArcBuildings> criteria)
+        public Task<IEnumerable<ArcBuildings>> QueryArcBuildings(ICriteria<ArcBuildings> criteria)
         {
             return Task.FromResult(_buildings.Where(criteria.Filter.Compile()).AsEnumerable());
         }
 
-        public Task RemoveBuilding(ArcBuildings route)
+        public Task RemoveArcBuilding(ArcBuildings building)
         {
-            _buildings.Remove(route);
+            _buildings.Remove(building);
             return Task.CompletedTask;
         }
 
-        public Task UpdateBuilding(ArcBuildings route)
+        public Task UpdateArcBuilding(ArcBuildings route)
         {
-            var foundRoute = GetBuilding(route.Id).Result;
+            var foundRoute = GetArcBuilding(route.Id).Result;
             if (foundRoute == null)
             {
-                AddBuilding(route);
+                AddArcBuilding(route);
             }
             else
             {

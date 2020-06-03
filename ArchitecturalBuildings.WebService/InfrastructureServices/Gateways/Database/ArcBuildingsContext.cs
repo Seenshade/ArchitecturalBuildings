@@ -2,14 +2,13 @@
 using ArchitecturalBuildings.DomainObjects;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace ArchitecturalBuildings.InfrastructureServices.Gateways.Database
 {
     public class ArcBuildingsContext : DbContext
     {
-        public DbSet<ArcBuildings> BuildingDB { get; set; }
+        public DbSet<ArcBuildings> Buildings { get; set; }
 
         public ArcBuildingsContext(DbContextOptions options)
             : base(options)
@@ -21,7 +20,8 @@ namespace ArchitecturalBuildings.InfrastructureServices.Gateways.Database
             FillTestData(modelBuilder);
         }
         private void FillTestData(ModelBuilder modelBuilder)
-        {          
+        {
+
             modelBuilder.Entity<ArcBuildings>().HasData(
                 new
                 {

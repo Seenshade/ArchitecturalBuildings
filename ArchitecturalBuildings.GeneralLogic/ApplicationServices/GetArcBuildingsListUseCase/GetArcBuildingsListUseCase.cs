@@ -10,23 +10,23 @@ namespace ArchitecturalBuildings.ApplicationServices.GetArcBuildingsListUseCase
     {
         private readonly IReadOnlyArcBuildingsRepository _readOnlyArcBuildingsRepository;
 
-        public GetArcBuildingsListUseCase(IReadOnlyArcBuildingsRepository readOnlyArcBuildingsRepository) 
-            => _readOnlyArcBuildingsRepository = readOnlyArcBuildingsRepository;
+        public GetArcBuildingsListUseCase(IReadOnlyArcBuildingsRepository readOnlyRouteRepository) 
+            => _readOnlyArcBuildingsRepository = readOnlyRouteRepository;
 
         public async Task<bool> Handle(GetArcBuildingsListUseCaseRequest request, IOutputPort<GetArcBuildingsListUseCaseResponse> outputPort)
         {
-            IEnumerable<ArcBuildings> buildings = null;
+            IEnumerable<ArcBuildings> routes = null;
             if (request.BuildId != null)
             {
-                var route = await _readOnlyArcBuildingsRepository.GetBuilding(request.BuildId.Value);
-                buildings = (route != null) ? new List<ArcBuildings>() { route } : new List<ArcBuildings>();
+                var route = await _readOnlyArcBuildingsRepository.GetArcBuilding(request.BuildId.Value);
+                routes = (route != null) ? new List<ArcBuildings>() { route } : new List<ArcBuildings>();
                 
             }
             else
             {
-                buildings = await _readOnlyArcBuildingsRepository.GetAllBuildings();
+                routes = await _readOnlyArcBuildingsRepository.GetAllArcBuildings();
             }
-            outputPort.Handle(new GetArcBuildingsListUseCaseResponse(buildings));
+            outputPort.Handle(new GetArcBuildingsListUseCaseResponse(routes));
             return true;
         }
     }

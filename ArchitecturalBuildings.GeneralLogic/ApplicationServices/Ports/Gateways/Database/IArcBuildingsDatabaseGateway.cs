@@ -9,17 +9,17 @@ namespace ArchitecturalBuildings.ApplicationServices.Ports.Gateways.Database
 {
     public interface IArcBuildingsDatabaseGateway
     {
-        Task AddArcBuilding(ArcBuildings route);
+        Task AddBuilding(ArcBuildings building);
 
-        Task RemoveArcBuilding(ArcBuildings route);
+        Task RemoveBuilding(ArcBuildings building);
 
-        Task UpdateArcBuilding(ArcBuildings route);
+        Task UpdateBuilding(ArcBuildings building);
 
-        Task<ArcBuildings> GetArcBuilding(long id);
+        Task<ArcBuildings> GetBuilding(long id);
 
-        Task<IEnumerable<ArcBuildings>> GetAllArcBuildings();
+        Task<IEnumerable<ArcBuildings>> GetAllBuildings();
 
-        Task<IEnumerable<ArcBuildings>> QueryArcBuildings(Expression<Func<ArcBuildings, bool>> filter);
+        Task<IEnumerable<ArcBuildings>> QueryBuildings(Expression<Func<ArcBuildings, bool>> filter);
 
     }
 }

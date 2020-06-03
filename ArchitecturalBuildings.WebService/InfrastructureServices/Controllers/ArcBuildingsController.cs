@@ -25,18 +25,18 @@ namespace ArchitecturalBuildings.InfrastructureServices.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetAllArcBuildings()
+        public async Task<ActionResult> GetAllBuildings()
         {
             var presenter = new ArcBuildingsListPresenter();
             await _getArcBuildingsListUseCase.Handle(GetArcBuildingsListUseCaseRequest.CreateAllArcBuildingsRequest(), presenter);
             return presenter.ContentResult;
         }
 
-        [HttpGet("{routeId}")]
-        public async Task<ActionResult> GetBuildingId(long routeId)
+        [HttpGet("{BuildId}")]
+        public async Task<ActionResult> GetArcBuilding(long BuildId)
         {
             var presenter = new ArcBuildingsListPresenter();
-            await _getArcBuildingsListUseCase.Handle(GetArcBuildingsListUseCaseRequest.CreateArcBuildingsRequest(routeId), presenter);
+            await _getArcBuildingsListUseCase.Handle(GetArcBuildingsListUseCaseRequest.CreateArcBuildingsRequest(BuildId), presenter);
             return presenter.ContentResult;
         }
     }

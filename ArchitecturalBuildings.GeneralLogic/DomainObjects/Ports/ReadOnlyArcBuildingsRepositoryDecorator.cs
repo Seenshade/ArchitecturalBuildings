@@ -10,26 +10,26 @@ namespace ArchitecturalBuildings.DomainObjects.Repositories
 {
     public abstract class ReadOnlyArcBuildingsRepositoryDecorator : IReadOnlyArcBuildingsRepository
     {
-        private readonly IReadOnlyArcBuildingsRepository _ArcBuildingsRepository;
+        private readonly IReadOnlyArcBuildingsRepository _arcbuildingsRepository;
 
         public ReadOnlyArcBuildingsRepositoryDecorator(IReadOnlyArcBuildingsRepository routeRepository)
         {
-            _ArcBuildingsRepository = routeRepository;
+            _arcbuildingsRepository = routeRepository;
         }
 
-        public virtual async Task<IEnumerable<ArcBuildings>> GetAllBuildings()
+        public virtual async Task<IEnumerable<ArcBuildings>> GetAllArcBuildings()
         {
-            return await _ArcBuildingsRepository?.GetAllBuildings();
+            return await _arcbuildingsRepository?.GetAllArcBuildings();
         }
 
-        public virtual async Task<ArcBuildings> GetBuilding(long id)
+        public virtual async Task<ArcBuildings> GetArcBuilding(long id)
         {
-            return await _ArcBuildingsRepository?.GetBuilding(id);
+            return await _arcbuildingsRepository?.GetArcBuilding(id);
         }
 
-        public virtual async Task<IEnumerable<ArcBuildings>> QueryBuildings(ICriteria<ArcBuildings> criteria)
+        public virtual async Task<IEnumerable<ArcBuildings>> QueryArcBuildings(ICriteria<ArcBuildings> criteria)
         {
-            return await _ArcBuildingsRepository?.QueryBuildings(criteria);
+            return await _arcbuildingsRepository?.QueryArcBuildings(criteria);
         }
     }
 }
